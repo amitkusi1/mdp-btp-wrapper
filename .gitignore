@@ -1,0 +1,13 @@
+/target/
+/test-issuer/target/
+/.idea/
+/.vscode/
+/.github/modernize/
+*.iml
+.env
+.env.*
+default-env.json
+*-service-key.json
+*.pem
+*.key
+vars.yaml

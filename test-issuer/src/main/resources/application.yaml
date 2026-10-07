@@ -1,0 +1,16 @@
+server:
+  port: ${PORT:9000}
+  tomcat:
+    max-http-form-post-size: 8KB
+  error:
+    include-message: never
+    include-stacktrace: never
+
+spring:
+  application:
+    name: mdp-test-issuer
+
+test-issuer:
+  issuer-uri: ${TEST_ISSUER_URI:http://localhost:9000}
+  client-id: ${TEST_CLIENT_ID:mdp-test-client}
+  client-secret: ${TEST_CLIENT_SECRET}

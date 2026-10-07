@@ -1,0 +1,16 @@
+applications:
+  - name: mdp-test-issuer
+    path: target/mdp-test-issuer-0.0.1-SNAPSHOT.jar
+    routes:
+      - route: ((issuer-host)).((apps-domain))
+    memory: 768M
+    instances: 1
+    buildpacks:
+      - sap_java_buildpack_jakarta
+    health-check-type: http
+    health-check-http-endpoint: /health
+    env:
+      JBP_CONFIG_COMPONENTS: '{ jres: ["com.sap.xs.java.buildpack.jre.SAPMachineJRE"] }'
+      JBP_CONFIG_SAP_MACHINE_JRE: '{ version: 21.+ }'
+      TEST_ISSUER_URI: https://((issuer-host)).((apps-domain))
+      TEST_CLIENT_ID: mdp-test-client
